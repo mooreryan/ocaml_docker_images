@@ -55,3 +55,16 @@ WORKDIR /home/runner
 
 # Clean up a bit.
 RUN rm -r downloads
+
+# See https://wiki.alpinelinux.org/wiki/How_to_get_regular_stuff_working
+RUN sudo apk add \
+    util-linux \
+    pciutils \
+    usbutils \
+    coreutils \
+    binutils \
+    findutils \
+    grep \
+    bash \
+    bash-doc \
+    bash-completion

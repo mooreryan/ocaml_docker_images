@@ -1,4 +1,4 @@
-name: Create and publish Docker images
+name: ocaml_alpine-4-12-2021-08-29
 
 on:
   push:

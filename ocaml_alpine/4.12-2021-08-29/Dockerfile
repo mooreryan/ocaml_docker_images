@@ -9,8 +9,7 @@ RUN apk add \
     linux-headers \
     m4
 
-# Add a user 'runner' so that the image is easier to use with GitHub
-# actions.
+# Add 'runner' user to use with GitHub actions.
 RUN adduser -D -G ocaml -u 1001 runner -s /bin/sh
 RUN echo 'runner ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 USER runner

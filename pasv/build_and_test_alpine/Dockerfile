@@ -41,7 +41,7 @@ RUN sudo chown runner .
 RUN sh -c "\curl -L \
     https://mafft.cbrc.jp/alignment/software/mafft-7.481-without-extensions-src.tgz \
     | tar xz"
-RUN sh -c "cd ./mafft-*/core/ && make clean && make -j4 && sudo make install"
+RUN sh -c "cd ./mafft-*/core/ && make clean && make && sudo make install"
 
 # Install HMMER
 
@@ -49,7 +49,7 @@ RUN \curl -L \
     http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz \
     | tar xz
 
-RUN sh -c "cd hmmer-3.3.2 && ./configure && make -j4 && sudo make install"
+RUN sh -c "cd hmmer-3.3.2 && ./configure && make && sudo make install"
 
 WORKDIR /home/runner
 

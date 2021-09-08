@@ -21,6 +21,10 @@ RUN adduser -S -D -G pasv pasv -s /bin/sh
 RUN echo 'pasv ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 COPY --from=BUILDER /home/runner/.opam/default/bin/pasv /usr/bin
+COPY --from=BUILDER /usr/local/bin/clustalo /usr/bin
+COPY --from=BUILDER /usr/local/bin/hmmbuild /usr/bin
+COPY --from=BUILDER /usr/local/bin/hmmalign /usr/bin
+COPY --from=BUILDER /usr/local/bin/mafft /usr/bin
 
 USER pasv
 WORKDIR /home/pasv

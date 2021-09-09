@@ -29,4 +29,4 @@ COPY --from=BUILDER /usr/local/bin/mafft /usr/bin
 USER pasv
 WORKDIR /home/pasv
 
-CMD [ "/bin/sh" ]
+ENTRYPOINT [ "/usr/bin/pasv" ]

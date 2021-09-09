@@ -1,10 +1,10 @@
 FROM ghcr.io/mooreryan/pasv_build_and_test_alpine:553acf9 as BUILDER
 
 RUN \curl -L \
-    https://github.com/mooreryan/pasv/archive/refs/tags/2.0.0-alpha.4.tar.gz \
+    https://github.com/mooreryan/pasv/archive/refs/tags/2.0.0-alpha.5.tar.gz \
     | tar xz
 
-WORKDIR pasv-2.0.0-alpha.4
+WORKDIR pasv-2.0.0-alpha.5
 
 RUN OCAMLPARAM=_,ccopt=-static opam exec -- make install
 

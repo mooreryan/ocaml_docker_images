@@ -10,8 +10,6 @@ RUN OCAMLPARAM=_,ccopt=-static opam exec -- make install
 
 WORKDIR /home/runner
 
-# /home/runner/.opam/default/bin/pasv
-
 FROM alpine:3.11 as TARGET
 
 USER root

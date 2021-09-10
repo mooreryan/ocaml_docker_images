@@ -39,7 +39,7 @@ jobs:
             org.opencontainers.image.title=PASV
           images: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha,format=short,prefix=2.0.0-alpha.4-,suffix=
+            type=sha,format=short,prefix=2.0.0-,suffix=
 
       - name: Cache Docker layers
         uses: actions/cache@v2

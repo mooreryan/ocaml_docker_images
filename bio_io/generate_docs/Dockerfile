@@ -1,6 +1,6 @@
 FROM ghcr.io/mooreryan/ocaml_alpine:4.12-2021-08-29-194996d
 
-# Installs enough to build docs for bio_io.
+# Installs enough to build docs for bio_io package.
 
 USER root
 

@@ -5,5 +5,5 @@ sudo docker run \
   -v $(pwd):$(pwd) \
   -w $(pwd) \
   --user $(id -u):$(id -g) \
-  ghcr.io/mooreryan/pasv:2.0.0-92a08a1 \
+  ghcr.io/mooreryan/pasv:2.0.1-f73a86c \
   "$@"

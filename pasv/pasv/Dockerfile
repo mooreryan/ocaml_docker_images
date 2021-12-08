@@ -3,7 +3,7 @@ FROM ghcr.io/mooreryan/pasv_build_and_test_alpine:553acf9 as BUILDER
 WORKDIR /home/runner
 
 RUN \curl -L \
-    https://github.com/mooreryan/pasv/releases/download/2.0.1/pasv-2.0.1-alpine-static.zip \
+    https://github.com/mooreryan/pasv/releases/download/2.0.2/pasv-2.0.2-alpine-static.zip \
     --output pasv.zip
 
 RUN unzip pasv.zip

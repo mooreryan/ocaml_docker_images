@@ -12,6 +12,7 @@ RUN opam install \
     base \
     dune \
     odoc \
+    ppx_compare \
     ppx_fields_conv \
     ppx_sexp_conv \
     stdio

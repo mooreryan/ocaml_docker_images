@@ -1,4 +1,4 @@
-FROM ghcr.io/mooreryan/ocaml_alpine:4-14-2022-07-04-81d01c2
+FROM ghcr.io/mooreryan/ocaml_alpine:4.12-2021-08-29-0f0f09a
 
 # Installs enough to build docs for bio_io package.
 
@@ -9,6 +9,10 @@ RUN apk add git
 USER runner
 
 RUN opam init -y --disable-sandboxing
+
+# Update opam.  TODO use update image instead.
+
+RUN opam update
 
 RUN opam install \
     base \

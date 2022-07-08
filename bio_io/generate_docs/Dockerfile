@@ -8,6 +8,8 @@ RUN apk add git
 
 USER runner
 
+RUN opam init -y --disable-sandboxing
+
 RUN opam install \
     base \
     dune \

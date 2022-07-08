@@ -8,7 +8,9 @@ RUN apk add git
 
 USER runner
 
-RUN opam install \
+# Needs sudo for findlib to change permission of /usr/local/lib/ocaml
+# TODO fix it rather than use sudo.
+RUN sudo opam install \
     base \
     dune \
     odoc \

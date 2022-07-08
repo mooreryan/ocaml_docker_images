@@ -1,4 +1,4 @@
-FROM ghcr.io/mooreryan/ocaml_alpine:4.12-2021-08-29-194996d
+FROM ghcr.io/mooreryan/ocaml_alpine:4-14-2022-07-04-3c1e396
 
 # Installs enough to build docs for bio_io package.
 

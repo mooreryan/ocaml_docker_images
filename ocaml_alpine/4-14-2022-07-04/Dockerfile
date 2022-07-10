@@ -22,8 +22,8 @@ RUN opam init -y --disable-sandboxing
 RUN opam switch create ocaml-base-compiler.4.14.0
 
 # These are values from opam env.  Need these for github actions.
-ENV OPAM_SWITCH_PREFIX='/home/runner/.opam/default'
-ENV CAML_LD_LIBRARY_PATH='/home/runner/.opam/default/lib/stublibs'
-ENV OCAML_TOPLEVEL_PATH='/home/runner/.opam/default/lib/toplevel'
-ENV MANPATH=':/home/runner/.opam/default/man'
-ENV PATH='/home/runner/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+ENV OPAM_SWITCH_PREFIX='/home/runner/.opam/ocaml-base-compiler.4.14.0'
+ENV CAML_LD_LIBRARY_PATH='/home/runner/.opam/ocaml-base-compiler.4.14.0/lib/stublibs:/home/runner/.opam/ocaml-base-compiler.4.14.0/lib/ocaml/stublibs:/home/runner/.opam/ocaml-base-compiler.4.14.0/lib/ocaml'
+ENV OCAML_TOPLEVEL_PATH='/home/runner/.opam/ocaml-base-compiler.4.14.0/lib/toplevel'
+ENV MANPATH=':/home/runner/.opam/ocaml-base-compiler.4.14.0/man'
+ENV PATH='/home/runner/.opam/ocaml-base-compiler.4.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'

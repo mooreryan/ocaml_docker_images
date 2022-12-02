@@ -18,6 +18,10 @@ RUN sudo apk add \
 RUN opam update
 RUN opam install dune
 
+# Manually pin bio_io
+RUN opam pin add bio_io \
+    https://github.com/mooreryan/bio_io/archive/refs/tags/0.6.0.tar.gz
+
 # Install deps
 RUN git clone https://github.com/mooreryan/InteinFinder.git
 WORKDIR InteinFinder

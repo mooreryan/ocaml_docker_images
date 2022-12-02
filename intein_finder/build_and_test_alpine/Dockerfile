@@ -1,4 +1,4 @@
-FROM ghcr.io/mooreryan/ocaml_alpine:4-14-2022-07-04-ebc03f8
+FROM ghcr.io/mooreryan/ocaml_alpine:4-14-2022-11-27-d17dd15
 
 # See https://wiki.alpinelinux.org/wiki/How_to_get_regular_stuff_working
 RUN sudo apk add \
@@ -15,8 +15,7 @@ RUN sudo apk add \
     perl
 
 # Set up opam/dune
-RUN opam update
-RUN opam install dune
+RUN opam install dune.3.5.0
 
 # Manually pin bio_io
 RUN opam pin add bio_io \

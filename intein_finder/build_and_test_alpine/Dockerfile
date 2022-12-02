@@ -34,14 +34,15 @@ RUN \curl -L \
     && cd mafft-*/core/ && make clean && make && sudo make install
 
 # Download & Install MMseqs2
+RUN mkdir -p "$HOME/.local/bin"
 RUN \curl -L \
     https://github.com/soedinglab/MMseqs2/releases/download/13-45111/mmseqs-linux-sse2.tar.gz \
     | tar xz \
-    && mv mmseqs/bin/mmseqs /usr/bin/mmseqs
+    && mv mmseqs/bin/mmseqs "$HOME/.local/bin/mmseqs"
 
 # Download & Install NCBI BLAST+
 RUN \curl -L \
     https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.12.0/ncbi-blast-2.12.0+-x64-linux.tar.gz \
     | tar xz \
-    && mv ncbi-blast-2.12.0+/bin/rpsblast "/usr/bin/rpsblast+" \
-    && mv ncbi-blast-2.12.0+/bin/makeprofiledb /usr/bin/makeprofiledb
+    && mv ncbi-blast-2.12.0+/bin/rpsblast "$HOME/.local/bin/rpsblast+" \
+    && mv ncbi-blast-2.12.0+/bin/makeprofiledb "$HOME/.local/bin/makeprofiledb"

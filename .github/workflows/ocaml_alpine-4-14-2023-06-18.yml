@@ -2,6 +2,8 @@ name: ocaml_alpine-4-14-2023-06-18
 
 on:
   push:
+    branches:
+      - "ocaml_alpine-4-14-2023-06-18"
     paths:
       - "ocaml_alpine/4-14-2023-06-18/Dockerfile"
 

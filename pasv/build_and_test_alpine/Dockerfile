@@ -1,4 +1,6 @@
-FROM ghcr.io/mooreryan/ocaml_alpine:4.12-2021-08-29-194996d
+FROM ghcr.io/mooreryan/ocaml_alpine:4-14-2023-06-18-5ffcdf1
+
+# d31acc646bea0031d3420143a751494e270ab6d5
 
 # Installs enough to build and test the statically-linked alpine
 # version of pasv.
@@ -7,23 +9,14 @@ FROM ghcr.io/mooreryan/ocaml_alpine:4.12-2021-08-29-194996d
 USER runner
 ENV CLUSTALO_EXE="/usr/local/bin/clustalo"
 
-# Install needed OCaml packages.  You should still include the install
-# deps bit (e.g., with `opam install . --deps-only` or something
-# similar) in the GitHub action in case any of the pasv deps have
-# changes.  Installing here though will ensure that step is quick most
-# of the time.
-RUN opam install \
-    async \
-    bio_io \
-    bisect_ppx \
-    cmdliner \
-    core \
-    dune \
-    little_logger \
-    odoc \
-    ppx_deriving \
-    ppx_jane \
-    re2
+# Get the code so we can install from the lockfile.  We also need to deal with 
+# a specific commit.
+RUN git clone https://github.com/mooreryan/pasv.git && \
+    cd pasv && \
+    git checkout d31acc646bea0031d3420143a751494e270ab6d5
+
+# Install needed OCaml packages.
+RUN opam install --locked . --deps-only --with-doc --with-test
 
 # Need perl for the cram tests.
 RUN sudo apk add perl
@@ -36,15 +29,16 @@ RUN sudo sh -c "\curl -L \
 WORKDIR ./downloads
 RUN sudo chown runner .
 
-# Install MAFFT
+# We need a few more runtime deps because we will run the tests in the GitHub
+# action.
 
+# Install MAFFT
 RUN sh -c "\curl -L \
     https://mafft.cbrc.jp/alignment/software/mafft-7.481-without-extensions-src.tgz \
     | tar xz"
 RUN sh -c "cd ./mafft-*/core/ && make clean && make && sudo make install"
 
 # Install HMMER
-
 RUN \curl -L \
     http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz \
     | tar xz

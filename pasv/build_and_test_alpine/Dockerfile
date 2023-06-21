@@ -10,13 +10,11 @@ USER runner
 ENV CLUSTALO_EXE="/usr/local/bin/clustalo"
 
 # Get the code so we can install from the lockfile.  We also need to deal with 
-# a specific commit.
+# a specific commit.  Then, install opam deps.
 RUN git clone https://github.com/mooreryan/pasv.git && \
     cd pasv && \
-    git checkout d31acc646bea0031d3420143a751494e270ab6d5
-
-# Install needed OCaml packages.
-RUN opam install --locked . --deps-only --with-doc --with-test
+    git checkout d31acc646bea0031d3420143a751494e270ab6d5 && \
+    opam install --locked . --deps-only --with-doc --with-test
 
 # Need perl for the cram tests.
 RUN sudo apk add perl
